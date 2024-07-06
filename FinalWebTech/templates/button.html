@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Stock Trading Platform</title>
+    <style>
+        *{
+           
+        }
+        body {
+            font-family: Arial, sans-serif;
+            
+        }
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        input[type="text"], select, button {
+            width: 100%;
+            margin: 5px 0;
+            padding: 10px;
+        }
+    </style>
+</head>
+<body style="background-image: url('istockphoto-1203745988-612x612.jpg');background-repeat: no-repeat;background-size: cover;">
+    <div class="header">
+        <a href="#" style=" font-weight: bolder; color:black;"> <span style="font-size: 40px; color:#9e0e09;">Stock</span>STREET<span
+           style="font-size: 40px; color:#9e0e09; font-weight: bold;">Whiz</span><span style="font-size: 40px;"></span> </a> 
+   </div>
+   
+    <div class="container">
+        <h1>Stock Trading Platform</h1>
+
+        <h2>Stock Information</h2>
+        <label for="stock-symbol" style="font-weight: bolder;">Stock Symbol:</label>
+        <select id="stock-symbol" style="border:2px solid black;">
+            <option value="AAPL">Apple Inc. (AAPL)</option>
+            <option value="GOOGL">Alphabet Inc. (GOOGL)</option>
+            <option value="AMZN">Amazon.com Inc. (AMZN)</option>
+            <option value="WIP">Wipro (WIP)</option>
+            <option value="Rel">Reliance (Rel)</option>
+            <option value="KPMG">KPMG (KPMG)</option>
+            <option value="PAY">Paypal(PAY)</option>
+            <option value="NK">NYKAA (NK)</option>
+            <option value="NI">NIKE(NI)</option>
+            <option value="SK">SKECHERS(SK)</option>
+            <option value="ND">Naped(ND)</option>
+            <option value="TB">TESLA BANK(TB)</option>
+            <option value="MOR">JP MORGAN(MOR)</option>
+            <option value="MIC">MICROSOFT(MIC)</option>
+            <option value="PUM">PUMA (PUM)</option>
+            <option value="ADD">ADDIDAS (ADD)</option>
+            <option value="PE">BHARATPE(PE)</option>
+            <option value="BO">BOAT (BO)</option>
+            <option value="LENS">LENSKART (LENS)</option>
+            <option value="APP">APPLE(APP)</option>
+            <option value="INFO">INFOSYS (INFO)</option>
+            <option value="AIR">AIRTEL (AIR)</option>
+            <option value="BAJ">BAJAJ (BAJ)</option>
+            <option value="NEST">NESTLE (NEST)</option>
+            <option value="ADO">ADOBE (ADO)</option>
+            <option value="CO">COCACOLA (CO)</option>
+            <option value="OIL">INDIAN OIL (OIL)</option>
+            <option value="LIC">LIC(LIC)</option>
+            <option value="ACC">ACCENTURE (ACC)</option>
+            <option value="COG">COGNIZANT (COG)</option>
+            <option value="TM">TATA MOTORS(TM)</option>
+            <option value="TS">TATA STEEL(TS)</option>
+            <option value="SBI">SBI(SBI)</option>
+            <option value="ADN">ADANI (ADN)</option>
+        </select>
+        <label for="stock-price" style="font-weight: bolder;">Price per Share:</label>
+        <input type="text" id="stock-price" placeholder="Price per share" readonly style="border:2px solid black;">
+        <label for="quantity" style="font-weight: bolder;">Quantity:</label>
+        <input type="text" id="quantity" placeholder="Enter quantity" style="border:2px solid black;">
+        
+        <h2>Action</h2>
+        <select id="action" style="border:2px solid black;">
+            <option value="buy">Buy</option>
+            <option value="sell">Sell</option>
+        </select>
+        
+        <button onclick="performAction()" style="border:2px solid black; background-color: #9e0e09; font-weight: bolder;">Submit</button>
+
+        <div id="result"></div>
+    </div>
+
+    <script>
+        const stockPrices = {
+            "AAPL": 150.50,
+            "GOOGL": 2750.00,
+            "AMZN": 3400.00,
+            "ADN":3000.00,
+            "CO":500.00,
+            "SBI":1800.00,
+            "BAJ":350.00,
+            "ADD":450.00,
+            "WIP":6000.00,
+            "REL":3000.00,
+            "KPMG":3200.00,
+            "PAY":560.00,
+            "NK":5500.00,
+            "NI":6000.00,
+            "SK":5800.00,
+            "ND":5700.00,
+            "TB":700.00,
+            "MOR":5400.00,
+            "MIC":100.00,
+            "PUM":1250.00,
+            "PAY":3200.00,
+            "BO":4650.00,
+            "LENS":3450.00,
+            "APP":4673.00,
+            "INFO":2346.00,
+            "AIR":5643.00,
+            "NEST":2178.00,
+            "ADO":6543.00,
+            "OIL":7650.00,
+            "LIC":4356.00,
+            "ACC":7890.00,
+            "COG":345.00,
+            "TM":456.00,
+            "TS":324.00,
+
+
+
+        };
+        
+        function performAction() {
+            const stockSymbol = document.getElementById("stock-symbol").value;
+            const stockPrice = stockPrices[stockSymbol];
+            const quantity = parseInt(document.getElementById("quantity").value);
+            const action = document.getElementById("action").value;
+
+            if (action === "buy") {
+                // Implement your buy logic here.
+                const totalCost = stockPrice * quantity;
+                document.getElementById("result").textContent = `You have bought ${quantity} shares of ${stockSymbol} for a total cost of $${totalCost}`;
+            } else if (action === "sell") {
+                // Implement your sell logic here.
+                const availableShares = 10; // Example: Replace with the actual number of shares the user owns.
+                if (quantity <= availableShares) {
+                    const totalRevenue = stockPrice * quantity;
+                    document.getElementById("result").textContent = `You have sold ${quantity} shares of ${stockSymbol} for a total revenue of $${totalRevenue}`;
+                } else {
+                    document.getElementById("result").textContent = "You don't have enough shares to sell.";
+                }
+            }
+        }
+
+        // Update the stock price when a new stock is selected.
+        document.getElementById("stock-symbol").addEventListener("change", function () {
+            const selectedSymbol = this.value;
+            document.getElementById("stock-price").value = stockPrices[selectedSymbol];
+        });
+
+        // Initialize the stock price based on the default selected stock.
+        document.getElementById("stock-price").value = stockPrices[document.getElementById("stock-symbol").value];
+    </script>
+</body>
+</html>

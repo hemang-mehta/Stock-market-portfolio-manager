@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE,edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Amazon Trading Live</title>
+</head>
+<link rel="stylesheet" href="style2.css">
+  
+<body>
+    <!-- TradingView Widget BEGIN -->
+    <div class="tradingview-widget-container">
+        <div id="tradingview_amazon"></div>
+        <div class="tradingview-widget-copyright">
+            <a href="https://www.tradingview.com/widgetembed/?hideideas=1&overrides=%7B%7D&enabled_features=%5B%5D&disabled_features=%5B%5D&locale=en&utm_source=127.0.0.1&utm_medium=widget_new&utm_campaign=chart&utm_term=NASDAQ%3AAMZN#%7B%22symbol%22%3A%22BATS_DLY%3AAMZN%22%2C%22frameElementId%22%3A%22tradingview_fb94a%22%2C%22interval%22%3A%221D%22%2C%22range%22%3A%22YTD%22%2C%22hide_side_toolbar%22%3A%220%22%2C%22allow_symbol_change%22%3A%221%22%2C%22save_image%22%3A%221%22%2C%22details%22%3A%221%22%2C%22calendar%22%3A%221%22%2C%22hotlist%22%3A%221%22%2C%22studies%22%3A%22%5B%5D%22%2C%22theme%22%3A%22dark%22%2C%22style%22%3A%221%22%2C%22timezone%22%3A%22Etc%2FUTC%22%2C%22withdateranges%22%3A%221%22%2C%22studies_overrides%22%3A%22%7B%7D%22%2C%22enable_publishing%22%3A%221%22%2C%22utm_source%22%3A%22127.0.0.1%22%2C%22utm_medium%22%3A%22widget_new%22%2C%22utm_campaign%22%3A%22chart%22%2C%22supportHost%22%3A%22https%3A%2F%2Fs.tradingview.com%22%2C%22utm_term%22%3A%22BATS_DLY%3AAMZN%22%2C%22page-uri%22%3A%22127.0.0.1%3A5500%2Ftemplates%2Fwipgraph.html%22%7D" rel="noopener nofollow" target="_blank">
+                <span class="blue-text">View Amazon Trading Live</span>
+            </a>
+        </div>
+        <script type="text/javascript" src="https://s3.tradingview.com/tv.js"></script>
+        <script type="text/javascript">
+            new TradingView.widget({
+                "autosize": true,
+                "symbol": "NASDAQ:AMZN",  // Use the appropriate symbol for Amazon stock
+                "timezone": "Etc/UTC",
+                "theme": "dark",
+                "style": "1",
+                "locale": "en",
+                "toolbar_bg": "#f1f3f6",
+                "enable_publishing": true,
+                "withdateranges": true,
+                "range": "YTD",
+                "hide_side_toolbar": false,
+                "allow_symbol_change": true,
+                "details": true,
+                "hotlist": true,
+                "calendar": true,
+                "show_popup_button": true,
+                "container_id": "tradingview_amazon"
+            });
+        </script>
+    </div>
+    <!-- TradingView Widget END -->
+</body>
+</html>
